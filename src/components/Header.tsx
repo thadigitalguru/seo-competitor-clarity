@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Search, Settings, Bell, Menu, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,8 +28,8 @@ export const Header = ({ onOpenSettings }: HeaderProps) => {
               <Menu className="h-5 w-5" />
             </Button>
           )}
-          <h1 className="text-xl font-semibold tracking-tight hidden md:block">SEO Competitor Clarity</h1>
-          <h1 className="text-lg font-semibold tracking-tight md:hidden">SEO Clarity</h1>
+          <h1 className="text-xl font-semibold tracking-tight hidden md:block">Where I Rank SEO</h1>
+          <h1 className="text-lg font-semibold tracking-tight md:hidden">Where I Rank</h1>
         </div>
         
         <div className="flex-1 max-w-md mx-4 hidden md:block">
@@ -57,7 +56,7 @@ export const Header = ({ onOpenSettings }: HeaderProps) => {
               <div className="p-2 font-medium text-sm">Resources</div>
               <DropdownMenuItem className="cursor-pointer">
                 <Link to="/blog" className="w-full">
-                  SEO Clarity Blog
+                  Where I Rank SEO Blog
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>

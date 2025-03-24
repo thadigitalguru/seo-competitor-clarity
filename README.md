@@ -1,7 +1,7 @@
 
-# SEO Competitor Clarity: Track, Analyze & Dominate
+# Where I Rank SEO: Track, Analyze & Dominate
 
-![SEO Competitor Clarity](https://lovable.dev/projects/8db944ce-fc47-4be7-b160-dfd53811a0a6)
+![Where I Rank SEO](https://lovable.dev/projects/8db944ce-fc47-4be7-b160-dfd53811a0a6)
 
 ## 🚀 The Journey: From Idea to Application
 
@@ -9,7 +9,7 @@ This project began with a single prompt:
 
 > *"I need to build a tool that shows you how you rank against your competitors on SERPs, ranks your content, word count, keywords in the industry they are ranking for, performance on search(SEO)..."*
 
-From that initial seed, SEO Competitor Clarity was born - a tool designed to give you crystal-clear insights into how you stack up against your competition in the search engine battlefield.
+From that initial seed, Where I Rank SEO was born - a tool designed to give you crystal-clear insights into how you stack up against your competition in the search engine battlefield.
 
 ## 💡 The Problem We're Solving
 
@@ -19,7 +19,7 @@ SEO professionals and website owners are constantly asking:
 - Which keywords should I be targeting?
 - Why are my competitors outranking me?
 
-Traditional SEO tools often provide overwhelming data without actionable insights. SEO Competitor Clarity cuts through the noise to give you exactly what you need to know.
+Traditional SEO tools often provide overwhelming data without actionable insights. Where I Rank SEO cuts through the noise to give you exactly what you need to know.
 
 ## 🛠️ How We Built It
 

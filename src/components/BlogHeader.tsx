@@ -16,7 +16,7 @@ export const BlogHeader = () => {
           </Link>
         </div>
         
-        <h1 className="text-xl font-semibold tracking-tight bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent animate-pulse">SEO Clarity Resources</h1>
+        <h1 className="text-xl font-semibold tracking-tight bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent animate-pulse">Where I Rank SEO Resources</h1>
         
         <div className="hidden md:flex gap-2">
           <Button variant="outline" size="sm" asChild>

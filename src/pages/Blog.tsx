@@ -11,7 +11,7 @@ const Blog = () => {
       id: "comparison",
       icon: PieChart,
       question: "How do I compare to my competitors in search results?",
-      answer: "SEO Competitor Clarity provides side-by-side SERP position comparisons for your domains against direct competitors, giving you clear visibility into where you stand in the rankings race.",
+      answer: "Where I Rank SEO provides side-by-side SERP position comparisons for your domains against direct competitors, giving you clear visibility into where you stand in the rankings race.",
       imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
     },
     {
@@ -68,7 +68,7 @@ const Blog = () => {
         <div className="mb-10">
           <h1 className="text-3xl font-bold mb-2">SEO Insights & Strategy</h1>
           <p className="text-muted-foreground max-w-3xl">
-            SEO Competitor Clarity gives you crystal-clear insights into how you stack up against your competition in the search engine battlefield.
+            Where I Rank SEO gives you crystal-clear insights into how you stack up against your competition in the search engine battlefield.
           </p>
         </div>
         
