@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Search, Settings, Bell, Menu } from "lucide-react";
+import { Search, Settings, Bell, Menu, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 
@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger 
 } from "@/components/ui/dropdown-menu";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   onOpenSettings: () => void;
@@ -46,6 +47,22 @@ export const Header = ({ onOpenSettings }: HeaderProps) => {
         </div>
         
         <div className="flex items-center gap-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" className="relative">
+                <FileText className="h-5 w-5" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              <div className="p-2 font-medium text-sm">Resources</div>
+              <DropdownMenuItem className="cursor-pointer">
+                <Link to="/blog" className="w-full">
+                  SEO Clarity Blog
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="relative">

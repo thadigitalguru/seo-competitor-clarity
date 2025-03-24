@@ -5,7 +5,13 @@ import { Header } from "@/components/Header";
 import { Dashboard } from "@/components/Dashboard";
 import { ApiKeyModal, type ApiKeyData } from "@/components/ApiKeyModal";
 import { Button } from "@/components/ui/button";
-import { FileText } from "lucide-react";
+import { FileText, Settings } from "lucide-react";
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger 
+} from "@/components/ui/dropdown-menu";
 
 const Index = () => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -21,12 +27,26 @@ const Index = () => {
       <Dashboard />
       
       <div className="fixed bottom-6 right-6">
-        <Link to="/blog">
-          <Button className="rounded-full flex items-center gap-2 shadow-lg">
-            <FileText className="h-4 w-4" />
-            Blog
-          </Button>
-        </Link>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button className="rounded-full shadow-lg">
+              <Settings className="h-5 w-5 mr-2" />
+              Resources
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem asChild>
+              <Link to="/blog" className="flex items-center gap-2 cursor-pointer">
+                <FileText className="h-4 w-4" />
+                SEO Blog & Insights
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setIsSettingsOpen(true)} className="cursor-pointer">
+              <Settings className="h-4 w-4 mr-2" />
+              Settings
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
       
       <ApiKeyModal 
