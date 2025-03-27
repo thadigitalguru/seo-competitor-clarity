@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useToast } from "@/components/ui/use-toast";
-import { ChevronRight, AlertTriangle, Globe, Search } from "lucide-react";
+import { ChevronRight, AlertTriangle, Globe, Search, BriefcaseIcon, FileText, Zap } from "lucide-react";
 
 // Mock data - in a real app, this would come from an API
 const MOCK_COMPETITORS = [
@@ -129,11 +129,15 @@ export const Dashboard = () => {
   
   return (
     <div className="max-w-7xl mx-auto w-full px-4 md:px-8 pt-24 pb-16 animate-fade-in">
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">SEO Competitor Analysis</h2>
+      <section aria-labelledby="competitor-analysis-heading">
+        <h1 id="competitor-analysis-heading" className="text-2xl font-semibold mb-6">SEO Competitor Analysis Dashboard</h1>
+        <p className="text-muted-foreground mb-8 max-w-3xl">
+          Discover how your site ranks against competitors, identify content gaps, and uncover keyword 
+          opportunities to improve your search visibility.
+        </p>
         
-        <div className="glass-panel rounded-lg p-6 mb-6">
-          <h3 className="text-lg font-medium mb-4">Enter domain or keyword to analyze</h3>
+        <div className="glass-panel rounded-lg p-6 mb-8 border border-primary/10">
+          <h2 className="text-lg font-medium mb-4">Analyze Your SEO Position</h2>
           
           <div className="grid gap-4 md:grid-cols-[1fr,auto]">
             <div className="grid gap-4 sm:grid-cols-2">
@@ -144,6 +148,7 @@ export const Dashboard = () => {
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   className="pl-9"
+                  aria-label="Enter your domain"
                 />
               </div>
               
@@ -154,6 +159,7 @@ export const Dashboard = () => {
                   value={keyword}
                   onChange={(e) => setKeyword(e.target.value)}
                   className="pl-9"
+                  aria-label="Enter target keyword"
                 />
               </div>
             </div>
@@ -161,7 +167,8 @@ export const Dashboard = () => {
             <Button 
               onClick={handleSearch} 
               disabled={isSearching}
-              className="w-full md:w-auto"
+              className="w-full md:w-auto bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary transition-all"
+              aria-label="Analyze SEO position"
             >
               {isSearching ? "Analyzing..." : "Analyze"}
               {!isSearching && <ChevronRight className="ml-1 h-4 w-4" />}
@@ -181,6 +188,18 @@ export const Dashboard = () => {
           )}
         </div>
         
+        <div className="mb-8">
+          <div className="flex flex-col md:flex-row md:items-center gap-4 mb-6">
+            <h2 className="text-xl font-medium">SEO Insights</h2>
+            <div className="flex-grow h-px bg-border"></div>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-muted-foreground">Quick filters:</span>
+              <Button variant="outline" size="sm">Top competitors</Button>
+              <Button variant="outline" size="sm">Keyword gaps</Button>
+            </div>
+          </div>
+        </div>
+        
         <Tabs 
           defaultValue="overview" 
           value={activeTab} 
@@ -188,9 +207,18 @@ export const Dashboard = () => {
           className="w-full"
         >
           <TabsList className="grid w-full md:w-auto md:inline-flex grid-cols-3 mb-6">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="keywords">Keywords</TabsTrigger>
-            <TabsTrigger value="content">Content</TabsTrigger>
+            <TabsTrigger value="overview" data-testid="overview-tab">
+              <BriefcaseIcon className="h-4 w-4 mr-2 hidden md:inline" />
+              Overview
+            </TabsTrigger>
+            <TabsTrigger value="keywords" data-testid="keywords-tab">
+              <Search className="h-4 w-4 mr-2 hidden md:inline" />
+              Keywords
+            </TabsTrigger>
+            <TabsTrigger value="content" data-testid="content-tab">
+              <FileText className="h-4 w-4 mr-2 hidden md:inline" />
+              Content
+            </TabsTrigger>
           </TabsList>
           
           <TabsContent value="overview" className="mt-0">
@@ -199,27 +227,96 @@ export const Dashboard = () => {
                 <CompetitorCard key={index} competitorData={competitor} />
               ))}
             </div>
+            
+            <div className="mt-8 p-6 border rounded-lg bg-muted/30">
+              <h3 className="text-lg font-medium mb-4">Why This Matters</h3>
+              <p className="text-muted-foreground">
+                Understanding how you compare to competitors helps identify opportunities for 
+                improvement. Focus on content length, keyword density, and performance metrics 
+                to outrank your competition.
+              </p>
+            </div>
           </TabsContent>
           
           <TabsContent value="keywords" className="mt-0">
-            <div className="glass-panel rounded-lg p-6 text-center">
-              <h3 className="text-lg font-medium mb-2">Keyword Analysis</h3>
-              <p className="text-muted-foreground">
-                Enter a domain or keyword above to analyze keyword rankings and opportunities
+            <div className="glass-panel rounded-lg p-6">
+              <h3 className="text-lg font-medium mb-4">Keyword Gap Analysis</h3>
+              <p className="text-muted-foreground mb-6">
+                Discover keywords your competitors rank for that you don't, and identify new ranking opportunities.
               </p>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="border rounded-lg p-4">
+                  <h4 className="font-medium mb-2">Top Competitor Keywords</h4>
+                  <ul className="space-y-2">
+                    <li className="flex justify-between">
+                      <span>seo competitor analysis</span>
+                      <Badge variant="outline">High potential</Badge>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>keyword gap tool</span>
+                      <Badge variant="outline">Medium</Badge>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>seo ranking comparison</span>
+                      <Badge variant="outline">High potential</Badge>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="border rounded-lg p-4">
+                  <h4 className="font-medium mb-2">Keyword Opportunities</h4>
+                  <ul className="space-y-2">
+                    <li className="flex justify-between">
+                      <span>compare seo rankings</span>
+                      <Badge variant="outline">Low competition</Badge>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>seo competitor tracking</span>
+                      <Badge variant="outline">High volume</Badge>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>track serp positions</span>
+                      <Badge variant="outline">Growing trend</Badge>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </TabsContent>
           
           <TabsContent value="content" className="mt-0">
-            <div className="glass-panel rounded-lg p-6 text-center">
-              <h3 className="text-lg font-medium mb-2">Content Analysis</h3>
-              <p className="text-muted-foreground">
-                Enter a domain above to analyze content length, readability, and structure
+            <div className="glass-panel rounded-lg p-6">
+              <h3 className="text-lg font-medium mb-4">Content Performance Analysis</h3>
+              <p className="text-muted-foreground mb-6">
+                Compare your content metrics with top-performing competitors to identify improvement opportunities.
               </p>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="border rounded-lg p-4">
+                  <h4 className="font-medium mb-2">Content Length Comparison</h4>
+                  <div className="h-40 bg-muted/20 rounded flex items-center justify-center">
+                    <p className="text-muted-foreground text-sm">Content length chart will appear here</p>
+                  </div>
+                  <p className="text-sm mt-2 text-muted-foreground">
+                    Top-ranking pages in your niche have an average of 1,950 words per page.
+                  </p>
+                </div>
+                
+                <div className="border rounded-lg p-4">
+                  <h4 className="font-medium mb-2">Content Readability</h4>
+                  <div className="h-40 bg-muted/20 rounded flex items-center justify-center">
+                    <p className="text-muted-foreground text-sm">Readability chart will appear here</p>
+                  </div>
+                  <p className="text-sm mt-2 text-muted-foreground">
+                    Most successful competitors maintain a readability score between 60-70 (8th-9th grade level).
+                  </p>
+                </div>
+              </div>
             </div>
           </TabsContent>
         </Tabs>
-      </div>
+      </section>
       
       <ApiKeyModal 
         isOpen={isApiKeyModalOpen}
