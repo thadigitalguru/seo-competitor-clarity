@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/components/ui/use-toast";
 import { ChevronRight, AlertTriangle, Globe, Search, BriefcaseIcon, FileText, Zap } from "lucide-react";
 
